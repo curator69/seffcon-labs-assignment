@@ -107,7 +107,9 @@ export default function Home({ testimonials }) {
 }
 
 export const getServerSideProps = async () => {
-  const res = await fetch("http://localhost:3000/api/getAllTestimonials");
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/getAllTestimonials`
+  );
   const testimonials = await res.json();
   return {
     props: {
